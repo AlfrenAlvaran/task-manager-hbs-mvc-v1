@@ -1,0 +1,43 @@
+
+
+<h1 class="task-title">Task Manager</h1>
+
+<div class="add-task-wrapper">
+  <a href="/todos/new" class="add-task-btn">Add New Task</a>
+</div>
+
+<div class="task-table-wrapper">
+  <table class="task-list">
+    <thead>
+      <tr>
+        <th class="task-header">Task</th>
+        <th class="task-header">Description</th>
+        <th class="task-header">Status</th>
+        <th class="task-header">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each todos}}
+      <tr class="task-item">
+        <td class="task-cell">{{this.title}}</td>
+        <td class="task-cell">{{this.description}}</td>
+        <td class="task-status">
+          {{#if this.isCompleted}}
+          <span class="badge-completed">Completed</span>
+          {{else}}
+          <span class="badge-pending">Pending</span>
+          {{/if}}
+        </td>
+        <td class="task-actions">
+          <div class="actions-container">
+            <a href="/todos/{{this._id}}/edit" class="action-btn edit-btn">Edit</a>
+            <form action="/todos/{{this._id}}?_method=DELETE" method="POST" class="delete-form">
+              <button class="action-btn delete-btn">Delete</button>
+            </form>
+          </div>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

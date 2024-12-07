@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    UI
+    {{#if titlePage}}
+      {{titlePage}}
+    {{/if}}
+  </title>
+  {{#if headContent}}
+    {{{headContent}}} 
+  {{/if}}
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+  <nav class="nav-bar">
+    <div class="nav-container">
+      <a class="nav-brand" href="/todos">Task Manager</a>
+    </div>
+  </nav>
+  <main class="main-content">
+    {{{body}}}
+  </main>
+</body>
+</html>

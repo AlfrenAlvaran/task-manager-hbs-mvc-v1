@@ -1,0 +1,17 @@
+<h1>Edit Task</h1>
+<form action="/todos/{{todo._id}}?_method=PUT" method="POST" class="task-form">
+  <div class="input-group">
+    <label for="title" class="input-label">Title</label>
+    <input type="text" class="input-field" id="title" name="title" value="{{todo.title}}" required>
+  </div>
+  <div class="input-group">
+    <label for="description" class="input-label">Description</label>
+    <textarea class="input-field" id="description" name="description" rows="3">{{todo.description}}</textarea>
+  </div>
+  <div class="checkbox-group">
+    <input class="checkbox-input" type="checkbox" id="isCompleted" name="isCompleted" {{#if todo.isCompleted}}checked{{/if}}>
+    <label class="checkbox-label" for="isCompleted">Mark as Completed</label>
+  </div>
+  <button type="submit" class="submit-btn">Update Task</button>
+  <a href="/todos" class="cancel-btn">Cancel</a>
+</form>
