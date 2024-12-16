@@ -1,11 +1,10 @@
 import Todo from '../models/todo.js';
 
-// List all tasks
-// List all tasks with search functionality
+
 export const index = async (req, res) => {
   try {
-    const searchQuery = req.query.search || ''; // Get search query from URL (default to empty string)
-    // Perform search query on title and description (case-insensitive)
+    const searchQuery = req.query.search || ''; 
+ 
     const todos = await Todo.find({
       $or: [
         { title: { $regex: searchQuery, $options: 'i' } },
@@ -23,7 +22,7 @@ export const index = async (req, res) => {
   }
 };
 
-// New task form
+
 export const newTask = (req, res) => {
   res.render('todos/new', { 
     layout: 'layouts/main',
