@@ -32,11 +32,11 @@ export const newTask = (req, res) => {
   });
 };
 
-// Create new task
+
 export const create = async (req, res) => {
   try {
-    // Ensure `isCompleted` is correctly set to a boolean
-    req.body.isCompleted = req.body.isCompleted === 'on'; // Converts "on" to true or undefined to false
+   
+    req.body.isCompleted = req.body.isCompleted === 'on'; 
     await Todo.create(req.body);
     res.redirect('/todos');
   } catch (error) {
@@ -44,7 +44,6 @@ export const create = async (req, res) => {
   }
 };
 
-// Edit task form
 export const edit = async (req, res) => {
   try {
     const todo = await Todo.findById(req.params.id);
@@ -63,11 +62,11 @@ export const edit = async (req, res) => {
   }
 };
 
-// Update task
+
 export const update = async (req, res) => {
   try {
-    // Ensure `isCompleted` is correctly set to a boolean
-    req.body.isCompleted = req.body.isCompleted === 'on'; // Converts "on" to true or undefined to false
+    
+    req.body.isCompleted = req.body.isCompleted === 'on';
     const updatedTodo = await Todo.findByIdAndUpdate(req.params.id, req.body, { new: true });
 
     if (!updatedTodo) {
@@ -80,7 +79,7 @@ export const update = async (req, res) => {
   }
 };
 
-// Delete task
+
 export const remove = async (req, res) => {
   try {
     const deletedTodo = await Todo.findByIdAndDelete(req.params.id);
